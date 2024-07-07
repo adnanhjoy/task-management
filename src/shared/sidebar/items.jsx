@@ -1,17 +1,18 @@
 import { GoTasklist } from "react-icons/go";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { IoFolderOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export const items = [
     {
         key: '1',
         icon: <GoTasklist />,
-        label: 'My Task',
+        label: <Link to='/task'>My Task</Link>,
     },
     {
         key: '2',
         icon: <IoFolderOutline />,
-        label: 'Projects',
+        label: <Link to='/projects'>Projects</Link>,
     },
     {
         key: '3',

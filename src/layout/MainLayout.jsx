@@ -17,7 +17,7 @@ const MainLayout = () => {
                 <Topbar
                     collapsed={collapsed}
                     toggleCollapsed={toggleCollapsed} />
-                <div className='p-4'>
+                <div className='p-4 min-h-[90.5vh] bg-[#f4f4f4]'>
                     <Outlet />
                 </div>
             </div>
