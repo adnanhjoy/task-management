@@ -11,7 +11,7 @@ const MainLayout = () => {
     return (
         <div className='flex'>
             <div className={`ease-in-out duration-500 ${collapsed ? 'w-16' : 'w-64'}`}>
-                <Sidebar />
+                <Sidebar collapsed={collapsed} />
             </div>
             <div className='w-full'>
                 <Topbar
