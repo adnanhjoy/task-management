@@ -17,7 +17,7 @@ export const items = [
     {
         key: '3',
         icon: <HiOutlineUserGroup />,
-        label: 'Members',
+        label: <Link to='/members'>Members</Link>,
     },
     {
         key: 'sub1',
