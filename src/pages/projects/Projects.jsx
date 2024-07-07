@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoArchiveOutline, IoFolderOutline } from 'react-icons/io5';
+import ProjectsTable from '../../components/projectsTable/ProjectsTable';
 
 const ProjectsPage = () => {
     return (
@@ -12,6 +13,7 @@ const ProjectsPage = () => {
                     <button className='bg-blue-600 px-2 py-1.5 text-sm text-white rounded-md'>Create Project</button>
                 </div>
             </div>
+            <ProjectsTable />
         </div>
     );
 };
