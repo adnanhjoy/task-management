@@ -4,7 +4,7 @@ import { RiDeleteBin7Line } from 'react-icons/ri';
 
 const ActionsButton = () => {
     return (
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-end'>
             <button className='bg-cyan-700 px-2 py-1.5 rounded-s text-white'>
                 <LiaEdit className='' />
             </button>

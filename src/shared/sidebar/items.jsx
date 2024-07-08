@@ -7,7 +7,7 @@ export const items = [
     {
         key: '1',
         icon: <GoTasklist />,
-        label: <Link to='/task'>My Task</Link>,
+        label: <Link to='/'>My Task</Link>,
     },
     {
         key: '2',
