@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import ProjectsPage from "../pages/projects/Projects";
 import MembersPage from "../pages/membersPage/MembersPage";
 import MyTaskPage from "../pages/myTaskPage/MyTaskPage";
+import ProjectDetailsPage from "../pages/projectDetailsPage/ProjectDetailsPage";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
             {
                 path: '/projects',
                 element: <ProjectsPage />
+            },
+            {
+                path: '/projects/:id',
+                element: <ProjectDetailsPage />
             },
             {
                 path: '/members',
