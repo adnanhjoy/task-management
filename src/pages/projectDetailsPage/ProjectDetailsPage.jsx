@@ -2,6 +2,7 @@ import { Tooltip } from 'antd';
 import React from 'react';
 import author from '../../assets/author.webp'
 import AssignMembersModal from '../../components/myTask/AssignMembersModal';
+import AddTask from '../../components/task/AddTask';
 
 const ProjectDetailsPage = () => {
     return (
@@ -24,6 +25,7 @@ const ProjectDetailsPage = () => {
                     <AssignMembersModal />
                 </div>
             </div>
+            <AddTask />
         </div>
     );
 };
