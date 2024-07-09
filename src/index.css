@@ -11,3 +11,22 @@ body {
     background-color: #292e36 !important;
     color: white !important;
 }
+
+.custom-select .ant-select-selector {
+    background-color: green !important;
+    color: white !important;
+}
+
+.custom-select .ant-select-item {
+    background-color: green !important;
+    color: white !important;
+}
+.custom-select-todo .ant-select-selector {
+    background-color: rgb(165, 165, 165) !important;
+    color: white !important;
+}
+
+.custom-select-todo .ant-select-item {
+    background-color: rgb(165, 165, 165) !important;
+    color: white !important;
+}
