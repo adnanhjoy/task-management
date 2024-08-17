@@ -1,23 +1,27 @@
 import { Button, Modal } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useCreateTeamMutation } from '../../redux/about/aboutApi';
+import { useCreateTeamMutation, useUpdateTeamMutation } from '../../redux/about/aboutApi';
+import { LiaEdit } from 'react-icons/lia';
 
-const CreateMember = () => {
+const CreateMember = ({ teamMember }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { id, name, email, password, role } = teamMember || {};
     const [teamMembers, setTeamMembers] = useState({
-        name: '',
-        email: '',
-        password: '',
-        role: ''
+        name: name ? name : '',
+        email: email ? email : '',
+        password: password ? password : '',
+        role: role ? role : ''
     });
     const [addTeamMembers] = useCreateTeamMutation();
+    const [updateTeamMembers] = useUpdateTeamMutation();
+
 
     const showModal = () => {
         setIsModalOpen(true);
     };
 
     const handleOk = () => {
-        addTeamMembers(teamMembers);
+        id ? updateTeamMembers(id, teamMembers) : addTeamMembers(teamMembers);
         setIsModalOpen(false);
     };
 
@@ -36,7 +40,14 @@ const CreateMember = () => {
 
     return (
         <div>
-            <button onClick={showModal} className='bg-blue-600 px-2 py-1.5 text-sm text-white rounded-md'>Create Member</button>
+            {
+                email ?
+                    <button onClick={showModal} className='bg-cyan-700 px-2 py-1.5 rounded-s text-white'>
+                        <LiaEdit />
+                    </button> :
+                    <button onClick={showModal} className='bg-blue-600 px-2 py-1.5 text-sm text-white rounded-md'>Create Member</button>
+            }
+
             <Modal
                 title="Create Member"
                 open={isModalOpen}
@@ -59,6 +70,7 @@ const CreateMember = () => {
                         className='block w-full border outline-none p-2 rounded mb-4'
                         type="text"
                         placeholder='Name'
+                        defaultValue={name}
                     />
                     <label>Email</label>
                     <input
@@ -67,6 +79,7 @@ const CreateMember = () => {
                         className='block w-full border outline-none p-2 rounded mb-4'
                         type="text"
                         placeholder='Email'
+                        defaultValue={email}
                     />
                     <label>Password</label>
                     <input
@@ -80,6 +93,7 @@ const CreateMember = () => {
                     <select
                         name="role"
                         onChange={handleChange}
+                        value={role}
                         className='block w-full border outline-none p-2 rounded mb-4'
                     >
                         <option value="">Select Role</option>
