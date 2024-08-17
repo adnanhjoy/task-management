@@ -4,6 +4,7 @@ import ProjectsPage from "../pages/projects/Projects";
 import MembersPage from "../pages/membersPage/MembersPage";
 import MyTaskPage from "../pages/myTaskPage/MyTaskPage";
 import ProjectDetailsPage from "../pages/projectDetailsPage/ProjectDetailsPage";
+import LoginPage from "../pages/loginPage/LoginPage";
 
 export const router = createBrowserRouter([
     {
@@ -25,7 +26,12 @@ export const router = createBrowserRouter([
             {
                 path: '/members',
                 element: <MembersPage />
-            }
+            },
+
         ]
+    },
+    {
+        path: '/login',
+        element: <LoginPage />
     }
 ])

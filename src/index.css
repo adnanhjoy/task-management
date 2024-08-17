@@ -30,3 +30,11 @@ body {
     background-color: rgb(165, 165, 165) !important;
     color: white !important;
 }
+
+.cover-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../src/assets/bg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
