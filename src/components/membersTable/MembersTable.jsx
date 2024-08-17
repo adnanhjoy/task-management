@@ -1,7 +1,10 @@
 import React from 'react';
 import ActionsButton from '../actionsButton/ActionsButton';
+import { useGetAllTeamQuery } from '../../redux/about/aboutApi';
 
 const MembersTable = () => {
+    const { data: teamMembers } = useGetAllTeamQuery();
+
     return (
         <div className='mt-5'>
             <div className="overflow-x-auto">
@@ -15,36 +18,16 @@ const MembersTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td className="w-1/3 px-4 py-2 border-b">John Doe</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">a@gmail.com</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">Admin</td>
-                            <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
-                        </tr>
-                        <tr>
-                            <td className="w-1/3 px-4 py-2 border-b">Jane Smith</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">aa@gmail.com</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">Manager</td>
-                            <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
-                        </tr>
-                        <tr>
-                            <td className="w-1/3 px-4 py-2 border-b">Sam Brown</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">a@gmail.com</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">Member</td>
-                            <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
-                        </tr>
-                        <tr>
-                            <td className="w-1/3 px-4 py-2 border-b">Sam Brown</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">a@gmail.com</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">Member</td>
-                            <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
-                        </tr>
-                        <tr>
-                            <td className="w-1/3 px-4 py-2 border-b">Sam Brown</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">a@gmail.com</td>
-                            <td className="w-1/3 px-4 py-2 border-b text-start">Member</td>
-                            <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
-                        </tr>
+                        {
+                            teamMembers?.data?.map(member =>
+                                <tr key={member?.id}>
+                                    <td className="w-1/3 px-4 py-2 border-b">{member?.name}</td>
+                                    <td className="w-1/3 px-4 py-2 border-b text-start">{member?.email}</td>
+                                    <td className="w-1/3 px-4 py-2 border-b text-start">{member?.role}</td>
+                                    <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
+                                </tr>
+                            )
+                        }
                     </tbody>
                 </table>
             </div>
