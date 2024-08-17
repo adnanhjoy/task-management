@@ -5,11 +5,15 @@ import MembersPage from "../pages/membersPage/MembersPage";
 import MyTaskPage from "../pages/myTaskPage/MyTaskPage";
 import ProjectDetailsPage from "../pages/projectDetailsPage/ProjectDetailsPage";
 import LoginPage from "../pages/loginPage/LoginPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <MainLayout />,
+        element:
+            <PrivateRoute>
+                <MainLayout />
+            </PrivateRoute>,
         children: [
             {
                 path: '/',

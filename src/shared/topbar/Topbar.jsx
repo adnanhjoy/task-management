@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { RiMenuFold2Fill, RiMenuFold3Fill } from 'react-icons/ri';
 import author from '../../assets/author.webp'
 import { IoIosArrowDown, IoMdArrowDropup } from 'react-icons/io';
+import { useDispatch } from 'react-redux';
+import { userLoggedOut } from '../../redux/auth/authSlice';
 
 const Topbar = ({ collapsed, toggleCollapsed }) => {
     const [openDropdown, setOpenDropdown] = useState(false)
+    const dispatch = useDispatch();
+
+    const handleSignOut = () => {
+        dispatch(userLoggedOut({}))
+    }
     return (
         <div className='bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between relative'>
             <button
@@ -24,7 +31,7 @@ const Topbar = ({ collapsed, toggleCollapsed }) => {
                     <IoMdArrowDropup className='absolute -top-7 right-0 text-3xl text-gray-500' />
                     <li className='hover:bg-gray-100 cursor-pointer px-2 py-1'>Profile</li>
                     <li className='hover:bg-gray-100 cursor-pointer px-2 py-1'>Settings</li>
-                    <li className='hover:bg-gray-100 cursor-pointer px-2 py-1'>Logout</li>
+                    <li onClick={handleSignOut} className='hover:bg-gray-100 cursor-pointer px-2 py-1'>Logout</li>
                 </ul>
             </div>
         </div>
