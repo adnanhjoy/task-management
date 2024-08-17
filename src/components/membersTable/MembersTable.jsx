@@ -24,7 +24,7 @@ const MembersTable = () => {
                                     <td className="w-1/3 px-4 py-2 border-b">{member?.name}</td>
                                     <td className="w-1/3 px-4 py-2 border-b text-start">{member?.email}</td>
                                     <td className="w-1/3 px-4 py-2 border-b text-start">{member?.role}</td>
-                                    <td className="w-1/3 px-4 py-2 border-b"><ActionsButton /></td>
+                                    <td className="w-1/3 px-4 py-2 border-b"><ActionsButton deleteId={member?.id} /></td>
                                 </tr>
                             )
                         }
