@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { RiMenuFold2Fill, RiMenuFold3Fill } from 'react-icons/ri';
 import author from '../../assets/author.webp'
 import { IoIosArrowDown, IoMdArrowDropup } from 'react-icons/io';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userLoggedOut } from '../../redux/auth/authSlice';
 
 const Topbar = ({ collapsed, toggleCollapsed }) => {
-    const [openDropdown, setOpenDropdown] = useState(false)
+    const [openDropdown, setOpenDropdown] = useState(false);
+    const { user } = useSelector(state => state?.user)
     const dispatch = useDispatch();
 
     const handleSignOut = () => {
@@ -23,7 +24,7 @@ const Topbar = ({ collapsed, toggleCollapsed }) => {
             </button>
             <div className='flex items-center gap-x-2'>
                 <img className='w-8 h-8 rounded-full' src={author} alt="author" />
-                <button onClick={() => setOpenDropdown(!openDropdown)} className='flex items-center gap-1 hover:bg-gray-100 p-1 rounded'>Admin <IoIosArrowDown /></button>
+                <button onClick={() => setOpenDropdown(!openDropdown)} className='flex items-center gap-1 hover:bg-gray-100 p-1 rounded'>{user?.role} <IoIosArrowDown /></button>
             </div>
 
             <div className={`absolute bg-white rounded border right-4 top-16 w-28 py-2 ${openDropdown ? 'block' : 'hidden'}`}>
