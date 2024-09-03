@@ -62,6 +62,17 @@ export const ourProjectApi = apiSlice.injectEndpoints({
             invalidatesTags: ['Project']
         }),
 
+
+        //assign project with teammembers
+        assignProjectWithTeamMembers: builder.mutation({
+            query: (data) => ({
+                url: `/project/teamProject`,
+                method: "POST",
+                body: data
+            }),
+            invalidatesTags: ['Project']
+        }),
+
     }),
 });
 
@@ -71,5 +82,6 @@ export const {
     useUpdateProjectMutation,
     useDeleteProjectMutation,
     useGetSingleProjectQuery,
-    useGetProjectWithTeamMembersQuery
+    useGetProjectWithTeamMembersQuery,
+    useAssignProjectWithTeamMembersMutation
 } = ourProjectApi;

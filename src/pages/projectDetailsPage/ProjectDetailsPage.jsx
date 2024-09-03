@@ -9,7 +9,7 @@ import { useGetProjectWithTeamMembersQuery } from '../../redux/project/projectAp
 const ProjectDetailsPage = () => {
     const { id } = useParams();
     const { data: project } = useGetProjectWithTeamMembersQuery(id);
-    
+
     const { id: projectId, name, color, status } = project?.project || {};
     return (
         <div>
@@ -30,7 +30,7 @@ const ProjectDetailsPage = () => {
                             </Tooltip>
                         )
                     }
-                    <AssignMembersModal />
+                    <AssignMembersModal projectId={projectId} />
                 </div>
             </div>
             <AddTask />
