@@ -34,7 +34,7 @@ export const ourProjectApi = apiSlice.injectEndpoints({
 
         //update single Project
         updateProject: builder.mutation({
-            query: (id, formData) => ({
+            query: ({ id, formData }) => ({
                 url: `/project/${id}`,
                 method: "PUT",
                 body: formData
