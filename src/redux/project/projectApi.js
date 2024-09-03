@@ -52,6 +52,16 @@ export const ourProjectApi = apiSlice.injectEndpoints({
             invalidatesTags: ['Project']
         }),
 
+
+        //get project with teammembers
+        getProjectWithTeamMembers: builder.query({
+            query: (id) => ({
+                url: `/project/${id}/team-members`,
+                method: "GET",
+            }),
+            invalidatesTags: ['Project']
+        }),
+
     }),
 });
 
@@ -61,4 +71,5 @@ export const {
     useUpdateProjectMutation,
     useDeleteProjectMutation,
     useGetSingleProjectQuery,
+    useGetProjectWithTeamMembersQuery
 } = ourProjectApi;
