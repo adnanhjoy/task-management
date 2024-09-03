@@ -1,17 +1,26 @@
 import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { useCreateProjectMutation } from '../../redux/project/projectApi';
+import toast from 'react-hot-toast';
 
 const CreateProjects = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [projectName, setProjectName] = useState('');
     const [selectedColor, setSelectedColor] = useState('#f44336');
+    const [addProject, { isLoading, isSuccess }] = useCreateProjectMutation();
 
     const showModal = () => {
         setIsModalOpen(true);
     };
     const handleOk = () => {
-        console.log('Project Created:', projectName, selectedColor);
+        const formData = {
+            name: projectName,
+            color: selectedColor,
+            status: 'active'
+        }
+        addProject(formData)
+        setIsModalOpen(false)
     };
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -28,6 +37,12 @@ const CreateProjects = () => {
         setSelectedColor(color);
     };
 
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success('Project Addedd Successfull');
+        }
+    }, [isSuccess])
+
     return (
         <div>
             <button onClick={showModal} className='bg-blue-600 px-2 py-1.5 text-sm text-white rounded-md'>Create Project</button>
@@ -41,7 +56,7 @@ const CreateProjects = () => {
                         Cancel
                     </Button>,
                     <Button key="submit" type="primary" onClick={handleOk}>
-                        Create Project
+                        {isLoading ? 'Creating..' : 'Create Project'}
                     </Button>
                 ]}
             >
