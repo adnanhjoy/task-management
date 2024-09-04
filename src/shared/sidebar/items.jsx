@@ -5,40 +5,40 @@ import { Link } from "react-router-dom";
 
 export const items = [
     {
-        key: '1',
+        key: '/',
         icon: <GoTasklist />,
         label: <Link to='/'>My Task</Link>,
     },
     {
-        key: '2',
+        key: '/projects',
         icon: <IoFolderOutline />,
         label: <Link to='/projects'>Projects</Link>,
     },
     {
-        key: '3',
+        key: '/members',
         icon: <HiOutlineUserGroup />,
         label: <Link to='/members'>Members</Link>,
     },
-    {
-        key: 'sub1',
-        label: 'All Projects',
-        children: [
-            {
-                key: '5',
-                label: 'Option 5',
-            },
-            {
-                key: '6',
-                label: 'Option 6',
-            },
-            {
-                key: '7',
-                label: 'Option 7',
-            },
-            {
-                key: '8',
-                label: 'Option 8',
-            },
-        ],
-    },
+    // {
+    //     key: 'sub1',
+    //     label: 'All Projects',
+    //     children: [
+    //         {
+    //             key: '5',
+    //             label: 'Option 5',
+    //         },
+    //         {
+    //             key: '6',
+    //             label: 'Option 6',
+    //         },
+    //         {
+    //             key: '7',
+    //             label: 'Option 7',
+    //         },
+    //         {
+    //             key: '8',
+    //             label: 'Option 8',
+    //         },
+    //     ],
+    // },
 ];

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { items } from './items';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/diu_white.png'
 
 const Sidebar = ({ collapsed }) => {
+    const pathname = useLocation().pathname
+    console.log(pathname)
 
     return (
         <div className='bg-[#1A1E25]'>
@@ -15,7 +17,7 @@ const Sidebar = ({ collapsed }) => {
                 }
             </Link>
             <Menu
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={[pathname]}
                 mode="inline"
                 theme="dark"
                 items={items}
