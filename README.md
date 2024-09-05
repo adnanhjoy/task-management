@@ -1,9 +1,23 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # task-management
+
+CREATE TABLE project (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    color VARCHAR(255),
+    status VARCHAR(255)
+);
+
+CREATE TABLE teammembers (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255)
+);
+
+CREATE TABLE project_teammembers (
+    project_id VARCHAR(255) REFERENCES project(id) ON DELETE CASCADE,
+    teammember_id VARCHAR(255) REFERENCES teammembers(id) ON DELETE CASCADE,
+    PRIMARY KEY (project_id, teammember_id)
+);
+

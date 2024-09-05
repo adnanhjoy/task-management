@@ -60,7 +60,7 @@ const AssignMembersModal = ({ projectId }) => {
                             teamMembers?.data?.map(member =>
                                 <button
                                     key={member?.id}
-                                    className='flex items-center gap-2 p-2 border-b last:border-none'
+                                    className={`flex items-center gap-2 p-2 border-b last:border-none w-full ${member?.id === teamMember && 'border border-green-600'}`}
                                     onClick={() => handleTeamMember(member?.id)}
                                 >
                                     <img className='w-8 h-8 rounded-full' src={author} alt="author" />

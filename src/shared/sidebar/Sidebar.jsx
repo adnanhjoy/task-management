@@ -5,8 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/diu_white.png'
 
 const Sidebar = ({ collapsed }) => {
-    const pathname = useLocation().pathname
-    console.log(pathname)
+    const pathname = useLocation().pathname;
 
     return (
         <div className='bg-[#1A1E25]'>
